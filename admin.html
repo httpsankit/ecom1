@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <form id="form">
+ <!--Product data-->
+<input id="name" type="text" placeholder="Product Brand">
+<input id="category" type="text" placeholder="Category">
+<input id="image" type="url" placeholder="Img">
+<input id="price" type="number" placeholder="Price">
+<!--end product data-->
+ <!--gender-->
+<select id="gender">
+<option value="">choose gender</option>
+<option value="male">male</option>
+<option value="female">female</option>
+        </select>
+ <!--gender end-->
+<!--sold-->
+ <select id="sold">
+<option value="false">false</option>
+<option value="true">true</option>
+</select>
+<!--sold end-->
+<button id="add">Submit</button>
+</form>
+</body>
+</html>
+<script>
+
+
+
+var productData=JSON.parse(localStorage.getItem("Products")) || [];
+//fun data 
+function data(product_Name,product_Catergory,product_Img,product_Price,product_Gender,product_Sold){
+  this.catergory=product_Catergory;
+  this.img=product_Img;
+  this.price=product_Price;
+  this.productname=product_Name;
+  this.gender=product_Gender;
+  this.sold=product_Sold;
+}
+
+document.querySelector("#form").addEventListener("submit",submitBtn)
+function submitBtn(){
+event.preventDefault();
+//form data
+if(1)
+{
+    document.querySelector("#form")
+var img=form.image.value;
+console.log(img)
+var name=form.name.value;
+console.log(name)
+var category=form.category.value;
+console.log(category)
+var price=form.price.value;
+console.log(price)
+var gender=form.gender.value;
+console.log(gender)
+var sold=form.sold.value;
+console.log(sold)
+var new_data=new data(name,category,img,price,gender,sold)
+console.log(new_data)
+productData.push(new_data);
+console.log(productData)
+localStorage.setItem("Products",JSON.stringify(productData));
+}
+}
+</script>
